@@ -6,7 +6,9 @@ import Controladores.Inicio;
 import Dtos.DtoClubs;
 import Dtos.DtoUsuario;
 import Utilidades.Util;
-
+/*
+ * Clase implementacion encargada de contener la logica de los metodos de la app
+ */
 public class OperativaImplementacion implements OperativaInterfaz {
 Scanner sc= new Scanner(System.in);
 ConexionInterfaz ci= new ConexionImplementacion();

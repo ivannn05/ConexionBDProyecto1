@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.postgresql.ds.PGSimpleDataSource;
-
+/*
+ * Implementacion que contiene la logica de los metodos de conexion con la base de datos
+ */
 public class ConexionImplementacion implements ConexionInterfaz {
 
 	@Override

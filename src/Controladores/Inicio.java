@@ -14,13 +14,17 @@ import Servicios.MenuInterfaz;
 import Servicios.OperativaImplementacion;
 import Servicios.OperativaInterfaz;
 import Utilidades.Util;
-
+/*
+ * Clase principal de la app
+ */
 public class Inicio {
 	public static List<DtoUsuario> listaUsus= new ArrayList<DtoUsuario>();
 	public static List<DtoClubs> listaClubes= new ArrayList<DtoClubs>();
 		
 
-
+/*
+ * Metodo por el cual se lazara la app
+ */
 	public static void main(String[] args) {
 		ConexionInterfaz ci = new ConexionImplementacion();
 		MenuInterfaz mi = new MenuImplementacion();
@@ -33,7 +37,8 @@ public class Inicio {
 		}
 		
 		try {
-			Util.meterEnListaDatosBD();
+			Util.meterEnListaDatosUsuBD();
+			Util.meterEnListaDatosClubsBD();
 		} catch (Exception e) {
 			System.out.println("Ocurrio un error en la carga de datos");
 		}

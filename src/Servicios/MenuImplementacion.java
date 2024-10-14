@@ -2,6 +2,9 @@ package Servicios;
 
 import java.util.Scanner;
 
+/*
+ * Clase encarda de contener la logica de los metodos de los menus
+ */
 public class MenuImplementacion implements MenuInterfaz {
 	Scanner sc = new Scanner(System.in);
 

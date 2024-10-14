@@ -1,5 +1,8 @@
 package Dtos;
 
+/*
+ * Dtos que contiene los datos de los usuarios
+ */
 public class DtoUsuario {
 	long idUsuario;
 	String nombreUsu;

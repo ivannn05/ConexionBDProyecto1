@@ -1,5 +1,8 @@
 package Dtos;
 
+/*
+ * Dtos que contiene los datos de los clubs
+ */
 public class DtoClubs {
 	long id_club;
 	String nombre = "aaaa";
