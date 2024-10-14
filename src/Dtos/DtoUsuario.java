@@ -40,4 +40,8 @@ public class DtoUsuario {
 		this.contrasenia = contrasenia;
 	}
 
+	public String toStringUsu() {
+		return "DtoUsuario [IdUsuario=" + idUsuario + ", NombreUsu=" + nombreUsu + ", Contrasenia=" + contrasenia + "]";
+	}
+
 }
