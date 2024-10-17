@@ -14,53 +14,53 @@ import Servicios.MenuInterfaz;
 import Servicios.OperativaImplementacion;
 import Servicios.OperativaInterfaz;
 import Utilidades.Util;
+
 /*
  * Clase principal de la app
  */
 public class Inicio {
-	public static List<DtoUsuario> listaUsus= new ArrayList<DtoUsuario>();
-	public static List<DtoClubs> listaClubes= new ArrayList<DtoClubs>();
-		
+	public static List<DtoUsuario> listaUsus = new ArrayList<DtoUsuario>();
+	public static List<DtoClubs> listaClubes = new ArrayList<DtoClubs>();
 
-/*
- * Metodo por el cual se lazara la app
- */
+	/*
+	 * Metodo por el cual se lazara la app
+	 */
 	public static void main(String[] args) {
 		ConexionInterfaz ci = new ConexionImplementacion();
 		MenuInterfaz mi = new MenuImplementacion();
-		OperativaInterfaz op= new OperativaImplementacion();
+		OperativaInterfaz op = new OperativaImplementacion();
 		try {
-			ci.ConexionBaseDatos();
-			
+			ci.conexionBaseDatos();
+
 		} catch (Exception e) {
 			System.out.println("Ocurrio un error en la conexion");
 		}
-		
+
 		try {
 			Util.meterEnListaDatosUsuBD();
 			Util.meterEnListaDatosClubsBD();
 		} catch (Exception e) {
 			System.out.println("Ocurrio un error en la carga de datos");
 		}
-		
-		
+
 		int opc;
 		boolean cerrarMenu = false;
 		do {
-			opc = mi.MostrarMenuIncial();
+			opc = mi.mostrarMenuIncial();
 			switch (opc) {
 			case 0:
 				System.out.println("Se cerrara la aplicacion");
-				cerrarMenu=true;
+				cerrarMenu = true;
 				break;
 			case 1:
 				System.out.println("Entro en Personas Independientes");
-				op.registroUsu();
+				
+				mi.mostrarMenuUsuario();
 				break;
 			case 2:
 				System.out.println("Entro en clubs");
-			op.registroClub();
-				 
+				mi.mostrarMenuClubs();
+
 				break;
 
 			default:

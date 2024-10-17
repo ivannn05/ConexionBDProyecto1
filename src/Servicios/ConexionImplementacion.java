@@ -7,13 +7,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.postgresql.ds.PGSimpleDataSource;
+
 /*
  * Implementacion que contiene la logica de los metodos de conexion con la base de datos
  */
 public class ConexionImplementacion implements ConexionInterfaz {
 
 	@Override
-	public Connection ConexionBaseDatos() {
+	public Connection conexionBaseDatos() {
 
 		PGSimpleDataSource dataSource = new PGSimpleDataSource();
 		String url = "jdbc:postgresql://localhost:5432/ProyectoMotos";
@@ -45,83 +46,5 @@ public class ConexionImplementacion implements ConexionInterfaz {
 
 	}
 
-	@Override
-	public void subidaDatosUsu(long idUsu, String nombre, String contrasenia) {
-		try {
-			Connection conexion = ConexionBaseDatos();
-			String query = "INSERT INTO \"esquemaUsus\".usuarios (id_usu, nombre, contraseña) VALUES (?, ?, ?)";
-			PreparedStatement ps = conexion.prepareStatement(query);
-			ps.setLong(1, idUsu);
-			ps.setString(2, nombre);
-			ps.setString(3, contrasenia);
-			ps.executeUpdate();
-			conexion.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public ResultSet consultaDatosUsu() {
-		ResultSet resultSet = null;
-
-		try {
-			Connection conexion = ConexionBaseDatos();
-
-			String query = "SELECT * FROM \"esquemaUsus\".usuarios";
-
-			PreparedStatement ps = conexion.prepareStatement(query);
-
-			resultSet = ps.executeQuery();
-			conexion.close();
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return resultSet;
-		}
-		return resultSet;
-
-	}
-
-	@Override
-	public void subidaDatosClub(long idClub, String nombre) {
-		try {
-			Connection conexion = ConexionBaseDatos();
-			String query = "INSERT INTO \"esquemaUsus\".clubes (id_club, nombre) VALUES (?, ?)";
-			PreparedStatement ps = conexion.prepareStatement(query);
-			ps.setLong(1, idClub);
-			ps.setString(2, nombre);
-			ps.executeUpdate();
-			conexion.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	@Override
-	public ResultSet consultaDatosClub() {
-		ResultSet resultSet = null;
-
-		try {
-			Connection conexion = ConexionBaseDatos();
-
-			String query = "SELECT * FROM \"esquemaUsus\".clubes";
-
-			PreparedStatement ps = conexion.prepareStatement(query);
-
-			resultSet = ps.executeQuery();
-			conexion.close();
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return resultSet;
-		}
-		return resultSet;
-	}
-
+	
 }

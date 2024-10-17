@@ -7,10 +7,13 @@ public interface MenuInterfaz {
 	/*
 	 * Metodo encargado de mostrar el menu principal
 	 */
-	public int MostrarMenuIncial();
+	public int mostrarMenuIncial();
 	/*
 	 * Metodo encargado de mostrar el menu Usuarios
 	 */
-	public int MostrarMenuPersonasIndepencientes();
+	public int mostrarMenuPersonasIndepencientes();
+	
+	public void mostrarMenuUsuario();
+	public void mostrarMenuClubs();
 
 }
